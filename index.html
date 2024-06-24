@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câmbio</title>
+    <link rel="stylesheet" href="./assets/css/global.css">
+</head>
+
+<body>
+
+    <section>
+
+        <div class="container">
+
+        <h1>Câmbio</h1>
+
+        <div class="coins">
+
+            <div class="contCoins">
+
+                <h3>Escolha a moeda a ser convertida:</h3>
+
+                <select name="moedasEntrada" id="input" class="moedas">
+                    <option value="brl">(BRL) Real</option>
+                    <option value="usd">(USD) Dolar</option>
+                    <option value="eur">(EUR) Euro</option>
+                    <option value="gbp">(GBP) Libra</option>
+                    <option value="cny">(CNY) Yuan</option>
+                    <option value="jpy">(JPY) Iene</option>
+                    <option value="btc">(BTC) Bitcoin</option>
+                </select>
+
+            </div>
+
+            <div class="contCoins">
+
+                <h3>Escolha a moeda desejada:</h3>
+
+                <select name="moedasSaida" id="outValue" class="moedas">
+                    <option value="usd">(USD) Dolar</option>
+                    <option value="brl">(BRL) Real</option>
+                    <option value="eur">(EUR) Euro</option>
+                    <option value="gbp">(GBP) Libra</option>
+                    <option value="cny">(CNY) Yuan</option>
+                    <option value="jpy">(JPY) Iene</option>
+                    <option value="btc">(BTC) Bitcoin</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="conversion">
+
+            <h2>Conversão</h2>
+
+            <h3>Digite o Valor que deseja converter</h3>
+
+            <input id="value" type="text">
+
+            <button id="calculate">Calcular</button>
+
+            <div id="result"></div>
+
+        </div>
+    
+    </div>
+
+        <script src="./assets/js/api-connect.js"></script>
+        <script src="./assets/js/values.js"></script>
+    </section>
+
+</body>
+
+</html>
