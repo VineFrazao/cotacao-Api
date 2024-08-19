@@ -5,23 +5,33 @@ buttonStart.addEventListener('click', () => {
     const outCoin = document.getElementById('outValue').value;
     const valueTyped = document.getElementById('value').value;
 
-    const inputCoinValue = inputCoin.value;
-    const outCoinValue = outCoin.value;
-
-    connectApiUrl.getMoedas(outCoinValue, inputCoinValue).then((data) => {
-        formatData(data, valueTyped);
-    });
+    if (inputCoin && outCoin && valueTyped) {
+        connectApiUrl.getMoedas(inputCoin, outCoin).then((data) => {
+            if (data) {
+                formatData(data, valueTyped);
+            } else {
+                console.error('Erro: Dados não retornados pela API.');
+            }
+        }).catch((error) => {
+            console.error('Erro ao buscar dados da API:', error);
+        });
+    } else {
+        console.error('Erro: Preencha todos os campos corretamente.');
+    }
 });
 
 function formatData(searchResult, valueTyped) {
+    if (searchResult.ask && searchResult.create_date && searchResult.name) {
+        const objectData = {
+            value: searchResult.ask,
+            time: searchResult.create_date,
+            transform: searchResult.name
+        };
 
-    const objectData = {
-        value: searchResult.ask,
-        time: searchResult.create_date,
-        transform: searchResult.name
-    };
-
-    calculateAndDisplay(objectData, valueTyped);
+        calculateAndDisplay(objectData, valueTyped);
+    } else {
+        console.error('Erro: Dados incompletos na resposta da API.', searchResult);
+    }
 }
 
 function calculateAndDisplay(objectData, valueTyped) {
